@@ -9,13 +9,24 @@ class ATEMController:
         self.stop_event = Event()  # Event to signal thread shutdown
 
     def connect(self, ip_address):
+        print(f"Connecting to {ip_address}...")
         try:
             self.switcher = PyATEMMax.ATEMMax()
+            print(f"PyATEMax instanse created"
+                  f"\nConnecting to {ip_address}...")
             self.switcher.connect(ip_address)
-            self.switcher.waitForConnection()
-            print("Connected successfully")
+
+            # Attempt to connect up to 5 times
+            max_tries = 5
+            for i in range(max_tries):
+                if not self.switcher.connected:
+                    print(f"Connection attempt {i+1}/{max_tries} failed. Retrying...")
+                    self.switcher.waitForConnection(timeout=5)
+                else:
+                    break
                   
             if not self.switcher.connected:
+                print("Connection failed.")
                 return False
 
             # Start the listener thread for program feed changes
