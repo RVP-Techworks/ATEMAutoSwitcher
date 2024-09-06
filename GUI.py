@@ -6,8 +6,14 @@ class GUI(tk.Frame):
         super().__init__(parent)
         self.parent = parent
         self.pack()  # Pack this frame into the parent
-        self.create_widgets()
+        self.create_widgets()   
         self.create_menu()
+
+        #update the window Branding
+        icon = tk.PhotoImage(file='graphics/icon.png')
+        self.parent.iconphoto(False, icon)
+
+        #self.parent.config(bg='#404040')
 
     def create_widgets(self):
         self.ip_label = tk.Label(self, text="ATEM IP Address:")
