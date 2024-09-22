@@ -11,6 +11,10 @@ A simple application to control an ATEM video switcher using a graphical interfa
 
 ## Installation
 
+python3 -m venv atem_env
+source venv/bin/activate
+pip install -r requirements.txt
+
 ### Windows
 
 1. **Download the executable**: You can download the pre-built executable for Windows from the releases section.
