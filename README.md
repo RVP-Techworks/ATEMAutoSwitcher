@@ -59,7 +59,7 @@ For macOS and Linux, you'll need to create the executable on a machine running t
      ```
    ## Mac OSX
       ```bash
-      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png:graphics" --icon=graphics/icon.icns switcher.py
+      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png:graphics" --icon=graphics/icon.ico switcher.py
 
       ```
    ## Linux
