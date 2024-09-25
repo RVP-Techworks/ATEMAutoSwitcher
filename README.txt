@@ -56,10 +56,20 @@ For macOS and Linux, you'll need to create the executable on a machine running t
      pip install pyinstaller
      ```
    - Generate the executable using:
+   ## Windows
      ```bash
      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png;graphics" --icon=graphics/icon.ico switcher.py
-
      ```
+   ## Mac OSX
+      ```bash
+      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png:graphics" --icon=graphics/icon.icns switcher.py
+
+      ```
+   ## Linux
+   ```bash
+   pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png:graphics" --icon=graphics/icon.png switcher.py
+   ```
+
 
 3. **Run the executable**:
    - For macOS, you'll find the `.app` file in the `dist` folder.
