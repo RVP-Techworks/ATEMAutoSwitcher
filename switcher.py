@@ -64,10 +64,21 @@ class Application(tk.Tk):
         print("Timer expired, switching input")  # Debug statement to ensure this method is called
         selected_inputs = self.get_selected_inputs()
         if selected_inputs:
-            random_input = random.choice(selected_inputs)
+            # Make sure input is not the same as the current one
+            current_input = self.atem_controller.switcher.programInput[0].videoSource.value
+            random_input = current_input
+
+            while random_input == current_input:
+                random_input = random.choice(selected_inputs)
+                print('Calling for random input | Current Input:', current_input, 
+                      'Random Input:', random_input)
             print(f"Setting program input with command: PrgI:{random_input}")
             self.atem_controller.switcher.setProgramInputVideoSource(0, random_input)
+        else:
+            print("No selected inputs available to switch.")
         self.reset_timer()
+
+        
         
     def start_timer(self):
         try:
