@@ -27,9 +27,6 @@ source atem_env/bin/activate  # Linux/MacOS
 
 #### Install the dependencies
 pip install -r requirements.txt
-python3 -m venv atem_env
-source venv/bin/activate
-pip install -r requirements.txt
 
 ## Local Development
 - When testing, you can run the "switcher.py" file to load the program
