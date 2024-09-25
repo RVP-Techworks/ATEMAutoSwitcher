@@ -14,6 +14,7 @@ A simple application to control an ATEM video switcher using a graphical interfa
 ### On Linux Install tkinter
 sudo apt-get install python3-tk
 _Windows and mac should include this already with the default python install_
+
 ### Create and activate the virtual environment
 python3 -m venv atem_env   # Linux/MacOS
 # or
