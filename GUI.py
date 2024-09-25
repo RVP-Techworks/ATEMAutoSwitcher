@@ -1,5 +1,6 @@
 import tkinter as tk
 from startup_manager import is_open_at_startup
+import os
 
 class GUI(tk.Frame):
     def __init__(self, parent):
@@ -9,9 +10,14 @@ class GUI(tk.Frame):
         self.create_widgets()   
         self.create_menu()
 
+        # Get the current directory of the running script
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Construct the path to the icon file
+        icon_path = os.path.join(current_dir, 'graphics', 'icon.png')
+
         #update the window Branding
-        icon = tk.PhotoImage(file='graphics/icon.png')
-        self.parent.iconphoto(False, icon)
+        self.parent.iconphoto(True, tk.PhotoImage(file=icon_path))
 
         #self.parent.config(bg='#404040')
 

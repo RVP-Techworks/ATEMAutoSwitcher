@@ -57,7 +57,8 @@ For macOS and Linux, you'll need to create the executable on a machine running t
      ```
    - Generate the executable using:
      ```bash
-     pyinstaller --onefile --windowed switcher.py
+     pyinstaller --onefile --windowed --add-data "graphics/icon.png;graphics" --icon=graphics/icon.ico switcher.py
+
      ```
 
 3. **Run the executable**:

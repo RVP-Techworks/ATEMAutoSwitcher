@@ -5,7 +5,7 @@ a = Analysis(
     ['switcher.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('graphics/icon.png', 'graphics')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,4 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['graphics\\icon.ico'],
 )
