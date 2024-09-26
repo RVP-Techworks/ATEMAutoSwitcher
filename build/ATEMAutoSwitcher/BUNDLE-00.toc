@@ -1,0 +1,3 @@
+([('ATEMAutoSwitcher',
+   '/Users/rvm/Documents/Programming/ATEMAutoSwitcher/dist/ATEMAutoSwitcher',
+   'EXECUTABLE')],)

@@ -1,6 +1,7 @@
 import tkinter as tk
 from startup_manager import is_open_at_startup
 import os
+import sys
 
 class GUI(tk.Frame):
     def __init__(self, parent):
@@ -14,12 +15,22 @@ class GUI(tk.Frame):
         current_dir = os.path.dirname(os.path.abspath(__file__))
 
         # Construct the path to the icon file
-        icon_path = os.path.join(current_dir, 'graphics', 'icon.png')
+        if hasattr(sys, '_MEIPASS'):
+            icon_path = os.path.join(sys._MEIPASS, 'graphics', 'icon.png')
+        else:
+            icon_path = os.path.join(current_dir, 'graphics', 'icon.png')
 
         #update the window Branding
-        self.parent.iconphoto(True, tk.PhotoImage(file=icon_path))
+        #ENSURE CORRECT LINE IS ENABLED DEPENDING ON SYSTEM
+        # This line is specific to Mac
+        self.parent.iconphoto(True, tk.PhotoImage(file=os.path.join(current_dir, 'graphics', 'icon.gif')))
+        # This line commented out - works on Win and Linux, but not Mac
+        # self.parent.iconphoto(True, tk.PhotoImage(file=icon_path))
 
         #self.parent.config(bg='#404040')
+
+        self.parent.update_idletasks()
+
 
     def create_widgets(self):
         self.ip_label = tk.Label(self, text="ATEM IP Address:")

@@ -58,9 +58,16 @@ For macOS and Linux, you'll need to create the executable on a machine running t
      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png;graphics" --icon=graphics/icon.ico switcher.py
      ```
    ## Mac OSX
+      First install pillow to convert the icon
       ```bash
-      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.png:graphics" --icon=graphics/icon.ico switcher.py
+      pip install pillow
+      brew install tcl-tk
+      ```
+      Be sure to check line 25+ in GUI.py to make sure the Mac specific icon line is enabled, and the other one is commented out.
 
+      run pyinstaller, pillow will automatically convert the file
+      ```bash
+      pyinstaller --onefile --windowed --name ATEMAutoSwitcher --add-data "graphics/icon.gif:graphics" --icon=graphics/icon.icns switcher.py
       ```
    ## Linux
    ```bash

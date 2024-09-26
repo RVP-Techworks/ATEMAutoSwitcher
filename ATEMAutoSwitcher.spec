@@ -5,7 +5,7 @@ a = Analysis(
     ['switcher.py'],
     pathex=[],
     binaries=[],
-    datas=[('graphics/icon.png', 'graphics')],
+    datas=[('graphics/icon.gif', 'graphics')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,5 +35,11 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['graphics/icon.ico'],
+    icon=['graphics/icon.icns'],
+)
+app = BUNDLE(
+    exe,
+    name='ATEMAutoSwitcher.app',
+    icon='graphics/icon.icns',
+    bundle_identifier=None,
 )
